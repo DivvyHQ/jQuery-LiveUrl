@@ -3,6 +3,7 @@
   "description": "jquery.liveurl - a facebook attachment clone",
   "license": "MIT",
   "version": "1.2.2",
+  "main" : "jquery.liveurl.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/DivvyHQ/jQuery-LiveUrl"
