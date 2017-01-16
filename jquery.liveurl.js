@@ -363,6 +363,10 @@
                     for (var index in preview.images) {
                         var image = preview.images[index];
 
+                        if (!image) {
+                            continue;
+                        }
+
                         if (!$.urlHelper.isAbsolute(image)) {
                             var pLink    = new $.urlHelper.UriParser(preview.url);
                             var host     = pLink.url + pLink.subdomain + pLink.domain;
