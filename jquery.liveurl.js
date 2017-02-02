@@ -78,7 +78,7 @@
                     if (initial !== undefined && initial === true && o.initOn !== null) {
                         links = [o.initOn];
                     } else {
-                        links = $.urlHelper.getLinks($(self).val());
+                        links = $.urlHelper.getLinks(core.getInputValue(self));
                         core.cleanDuplicates(links);
                     }
 
@@ -88,6 +88,15 @@
                             core.process(links);
                         }
                     }
+                };
+
+                core.getInputValue = function (self) {
+                    if ($(self).prop('contentEditable') === 'true' ||
+                        $(self).attr('contentEditable') === 'true') {
+                        return $(self).text();
+                    }
+
+                    return $(self).val();
                 };
 
                 core.process = function(urlArray)
@@ -425,7 +434,7 @@
 
                 self.on('keyup', function(e)
                 {
-                    var links = $.urlHelper.getLinks($(self).val());
+                    var links = $.urlHelper.getLinks(core.getInputValue(self));
                     core.cleanDuplicates(links);
 
                     window.clearInterval(core.textTimer);
