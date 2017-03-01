@@ -459,7 +459,7 @@
     jQuery.yql = function yql(query, error, success)
     {
         var yql = {
-            path: 'http://query.yahooapis.com/v1/public/yql?q=',
+            path: 'https://query.yahooapis.com/v1/public/yql?q=',
             query: encodeURIComponent(query)
         };
 
